@@ -141,8 +141,8 @@ public class Dictionary {
     public static boolean hasNullSlots(String[] words) {
         int hasValue = 0;
 
-        for (int i = 0; i < words.length; i++) {
-            if (words[i] != null) {
+        for (String word : words) {
+            if (word != null) {
                 hasValue++;
             }
         }
