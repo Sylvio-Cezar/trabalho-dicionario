@@ -33,12 +33,12 @@ public class Dictionary {
                 default -> System.out.println("\nOpção inválida!");
             }
 
-            System.out.println("\n--------------ÁREA DE TESTES----------------");
+            /* System.out.println("\n--------------ÁREA DE TESTES----------------");
             for (int i = 0; i <= 4; i++) {
                 System.out.println(words[i]);
                 System.out.println(translatedWords[i]);
             }
-            System.out.println("--------------------------------------------\n");
+            System.out.println("--------------------------------------------\n"); */
 
         } while (option != 9);
     }
@@ -84,12 +84,7 @@ public class Dictionary {
     }
 
     public static void doEdit(String[] words, String[] translatedWords) {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("\nInforme em português a palavra que deseja editar:");
-        String search = scan.next();
-
-        int position = compareWords(search, words);
+        int position = getPosition(words, "editar");
 
         if (position == -1) {
             System.out.println("Palavra não encontrada!");
@@ -101,12 +96,7 @@ public class Dictionary {
     }
 
     public static void deleteWord(String[] words, String[] translatedWords) {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("\nInforme em português a palavra que deseja excluir:");
-        String search = scan.next();
-
-        int position = compareWords(search, words);
+        int position = getPosition(words, "excluir");
 
         if (position == -1) {
             System.out.println("Palavra não encontrada!");
@@ -118,12 +108,7 @@ public class Dictionary {
     }
 
     public static void searchWord(String[] words, String[] translatedWords) {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("\nInforme em português a palavra que deseja consultar:");
-        String search = scan.next();
-
-        int position = compareWords(search, words);
+        int position = getPosition(words, "consultar");
 
         if (position == -1) {
             System.out.println("Palavra não encontrada!");
@@ -131,6 +116,15 @@ public class Dictionary {
             System.out.println("\nPalavra: " + words[position]);
             System.out.println("Tradução: " + translatedWords[position] + "\n");
         }
+    }
+
+    private static int getPosition(String[] words, String option) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("\nInforme em português a palavra que deseja " + option + ":");
+        String search = scan.next();
+
+        return compareWords(search, words);
     }
 
     public static int compareWords(String search, String[] words) {
