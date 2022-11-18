@@ -18,8 +18,7 @@ public class Dictionary {
 
             switch (option) {
                 case 1 -> {
-                    boolean hasSlots = hasNullSlots(words);
-                    if (hasSlots) {
+                    if (hasNullSlots(words)) {
                         result = registerEditWord();
                         doRegister(pos, words, translatedWords, result);
                     } else {
@@ -29,6 +28,7 @@ public class Dictionary {
                 case 2 -> doEdit(words, translatedWords);
                 case 3 -> deleteWord(words, translatedWords);
                 case 4 -> searchWord(words, translatedWords);
+                case 5 -> listWords(words, translatedWords);
                 case 9 -> System.out.println("\nAdeus!");
                 default -> System.out.println("\nOpção inválida!");
             }
@@ -49,6 +49,7 @@ public class Dictionary {
         System.out.println("2 - Editar palavra.");
         System.out.println("3 - Excluir palavra.");
         System.out.println("4 - Consultar palavra.");
+        System.out.println("5 - Listar palavras cadastradas.");
         System.out.println("9 - Sair (os dados serão perdidos).\n");
     }
 
@@ -72,7 +73,7 @@ public class Dictionary {
             }
         }
 
-        int position = compareWords(words[pos], words);
+        int position = compareWords(result[0], words);
 
         if (position == -1) {
             words[pos] = result[0];
@@ -118,6 +119,17 @@ public class Dictionary {
         }
     }
 
+    public static void listWords(String[] words, String[] translatedWords) {
+        int index = 0;
+        System.out.println("\n| Palavras -> Traduções |");
+
+        for (int i = 0; i < words.length; i++) {
+            if (words[i] != null) {
+                System.out.println(++index + ": " + words[i] + " -> " + translatedWords[i]);
+            }
+        }
+    }
+
     private static int getPosition(String[] words, String option) {
         Scanner scan = new Scanner(System.in);
 
@@ -129,6 +141,7 @@ public class Dictionary {
 
     public static int compareWords(String search, String[] words) {
         int pos = -1;
+
         for (int i = 0; i < words.length; i++) {
             if (words[i] != null && words[i].equals(search)) {
                 pos = i;
