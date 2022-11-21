@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d95bcff-51c9-4af0-8474-e76fbfef2993" name="Changes" comment="melhoria for de hasNullSlots">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/edu/univas/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/univas/Dictionary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

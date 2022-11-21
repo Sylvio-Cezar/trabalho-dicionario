@@ -13,7 +13,6 @@ public class Dictionary {
 
         do {
             buildMenu();
-
             option = scan.nextInt();
 
             switch (option) {
@@ -32,7 +31,6 @@ public class Dictionary {
                 case 9 -> System.out.println("\nAdeus!");
                 default -> System.out.println("\nOpção inválida!");
             }
-
         } while (option != 9);
     }
 
@@ -74,7 +72,6 @@ public class Dictionary {
         } else {
             System.out.println("Palavra já existente!");
         }
-
     }
 
     public static void doEdit(String[] words, String[] translatedWords) {
@@ -91,7 +88,6 @@ public class Dictionary {
 
     public static void deleteWord(String[] words, String[] translatedWords) {
         Scanner scan = new Scanner(System.in);
-
         int position = getPosition(words, "excluir");
 
         if (position == -1) {
@@ -124,8 +120,8 @@ public class Dictionary {
 
     public static void listWords(String[] words, String[] translatedWords) {
         int index = 0;
-        System.out.println("\n| Palavras -> Traduções |");
 
+        System.out.println("\n| Palavras -> Traduções |");
         for (int i = 0; i < words.length; i++) {
             if (words[i] != null) {
                 System.out.println(++index + ": " + words[i] + " -> " + translatedWords[i]);
@@ -151,6 +147,7 @@ public class Dictionary {
                 break;
             }
         }
+
         return pos;
     }
 
@@ -165,5 +162,4 @@ public class Dictionary {
 
         return hasValue != words.length;
     }
-
 }
