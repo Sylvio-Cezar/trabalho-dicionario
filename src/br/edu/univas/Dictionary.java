@@ -1,8 +1,9 @@
 package br.edu.univas;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Dictionary {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scan = new Scanner(System.in);
 
         int option;
@@ -12,7 +13,9 @@ public class Dictionary {
         String[] translatedWords = new String[100];
 
         do {
+            TimeUnit.MILLISECONDS.sleep(1500);
             buildMenu();
+            System.out.print("Selecione: ");
             option = scan.nextInt();
 
             switch (option) {
@@ -69,8 +72,9 @@ public class Dictionary {
         if (position == -1) {
             words[pos] = result[0];
             translatedWords[pos] = result[1];
+            System.out.println("\nPalavra cadastrada com sucesso!");
         } else {
-            System.out.println("Palavra já existente!");
+            System.out.println("\nPalavra já existente!");
         }
     }
 
