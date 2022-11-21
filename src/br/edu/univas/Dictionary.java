@@ -8,8 +8,8 @@ public class Dictionary {
         int option;
         int pos = 0;
         String[] result;
-        String[] words = new String[100];
-        String[] translatedWords = new String[100];
+        String[] words = new String[5];
+        String[] translatedWords = new String[5];
 
         do {
             buildMenu();
@@ -22,7 +22,7 @@ public class Dictionary {
                         result = registerEditWord();
                         doRegister(pos, words, translatedWords, result);
                     } else {
-                        System.out.println("Você atingiu o limite de cadastros disponíveis, exclua algumas palavras caso queira efetuar mais cadastros.");
+                        System.out.println("\nVocê atingiu o limite de cadastros disponíveis, exclua algumas palavras caso queira efetuar mais cadastros.");
                     }
                 }
                 case 2 -> doEdit(words, translatedWords);
@@ -33,12 +33,12 @@ public class Dictionary {
                 default -> System.out.println("\nOpção inválida!");
             }
 
-            /* System.out.println("\n--------------ÁREA DE TESTES----------------");
+            System.out.println("\n--------------ÁREA DE TESTES----------------");
             for (int i = 0; i <= 4; i++) {
                 System.out.println(words[i]);
                 System.out.println(translatedWords[i]);
             }
-            System.out.println("--------------------------------------------\n"); */
+            System.out.println("--------------------------------------------\n");
 
         } while (option != 9);
     }
@@ -88,7 +88,7 @@ public class Dictionary {
         int position = getPosition(words, "editar");
 
         if (position == -1) {
-            System.out.println("Palavra não encontrada!");
+            System.out.println("\nPalavra não encontrada!");
         } else {
             String[] result = registerEditWord();
             words[position] = result[0];
@@ -97,14 +97,24 @@ public class Dictionary {
     }
 
     public static void deleteWord(String[] words, String[] translatedWords) {
+        Scanner scan = new Scanner(System.in);
+
         int position = getPosition(words, "excluir");
 
         if (position == -1) {
-            System.out.println("Palavra não encontrada!");
+            System.out.println("\nPalavra não encontrada!");
         } else {
-            words[position] = null;
-            translatedWords[position] = null;
-            System.out.println("\nPalavra e tradução excluídas com sucesso!");
+            System.out.println("Tem certeza que deseja excluir essa palavra? \n1 - Sim \n2 - Não");
+            int option = scan.nextInt();
+            if (option == 1) {
+                words[position] = null;
+                translatedWords[position] = null;
+                System.out.println("\nPalavra e tradução excluídas com sucesso!");
+            } else if (option == 2) {
+                System.out.println("\nOperação cancelada, retornando ao menu principal.");
+            } else {
+                System.out.println("\nOpção inválida, retornando ao menu principal.");
+            }
         }
     }
 
@@ -112,7 +122,7 @@ public class Dictionary {
         int position = getPosition(words, "consultar");
 
         if (position == -1) {
-            System.out.println("Palavra não encontrada!");
+            System.out.println("\nPalavra não encontrada!");
         } else {
             System.out.println("\nPalavra: " + words[position]);
             System.out.println("Tradução: " + translatedWords[position] + "\n");
