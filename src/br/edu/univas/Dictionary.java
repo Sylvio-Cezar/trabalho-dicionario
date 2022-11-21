@@ -8,8 +8,8 @@ public class Dictionary {
         int option;
         int pos = 0;
         String[] result;
-        String[] words = new String[5];
-        String[] translatedWords = new String[5];
+        String[] words = new String[100];
+        String[] translatedWords = new String[100];
 
         do {
             buildMenu();
@@ -32,13 +32,6 @@ public class Dictionary {
                 case 9 -> System.out.println("\nAdeus!");
                 default -> System.out.println("\nOpção inválida!");
             }
-
-            System.out.println("\n--------------ÁREA DE TESTES----------------");
-            for (int i = 0; i <= 4; i++) {
-                System.out.println(words[i]);
-                System.out.println(translatedWords[i]);
-            }
-            System.out.println("--------------------------------------------\n");
 
         } while (option != 9);
     }
