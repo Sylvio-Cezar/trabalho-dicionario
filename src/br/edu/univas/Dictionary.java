@@ -125,10 +125,10 @@ public class Dictionary {
     public static void listWords(String[] words, String[] translatedWords) {
         int index = 0;
 
-        System.out.println("\n| Palavras -> Traduções |");
+        System.out.println("\nListagem das palavras cadastradas:");
         for (int i = 0; i < words.length; i++) {
             if (words[i] != null) {
-                System.out.println(++index + ": " + words[i] + " -> " + translatedWords[i]);
+                System.out.println(++index + ": " + words[i]);
             }
         }
     }
