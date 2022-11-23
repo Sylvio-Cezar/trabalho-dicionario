@@ -30,7 +30,7 @@ public class Dictionary {
                 case 2 -> doEdit(words, translatedWords);
                 case 3 -> deleteWord(words, translatedWords);
                 case 4 -> searchWord(words, translatedWords);
-                case 5 -> listWords(words, translatedWords);
+                case 5 -> listWords(words);
                 case 9 -> System.out.println("\nAdeus!");
                 default -> System.out.println("\nOpção inválida!");
             }
@@ -122,15 +122,17 @@ public class Dictionary {
         }
     }
 
-    public static void listWords(String[] words, String[] translatedWords) {
+    public static void listWords(String[] words) throws InterruptedException {
         int index = 0;
 
         System.out.println("\nListagem das palavras cadastradas:");
-        for (int i = 0; i < words.length; i++) {
-            if (words[i] != null) {
-                System.out.println(++index + ": " + words[i]);
+        for (String word : words) {
+            if (word != null) {
+                System.out.println(++index + ": " + word);
             }
         }
+        System.out.println("\nOBS: Para visualizar a tradução de alguma palavra, utilize a opção Consultar");
+        TimeUnit.MILLISECONDS.sleep(750);
     }
 
     private static int getPosition(String[] words, String option) {
