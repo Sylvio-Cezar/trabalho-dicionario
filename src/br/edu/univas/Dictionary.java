@@ -9,8 +9,8 @@ public class Dictionary {
         int option;
         int pos = 0;
         String[] result;
-        String[] words = new String[100];
-        String[] translatedWords = new String[100];
+        String[] words = new String[3];
+        String[] translatedWords = new String[3];
 
         do {
             TimeUnit.MILLISECONDS.sleep(1500);
@@ -85,8 +85,14 @@ public class Dictionary {
             System.out.println("\nPalavra não encontrada!");
         } else {
             String[] result = registerEditWord();
-            words[position] = result[0];
-            translatedWords[position] = result[1];
+            int existPosition = compareWords(result[0], words);
+            if (existPosition == -1 || existPosition == position) {
+                words[position] = result[0];
+                translatedWords[position] = result[1];
+                System.out.println("\nPalavra editada com sucesso!");
+            } else {
+                System.out.println("\nPalavra já existente!");
+            }
         }
     }
 
