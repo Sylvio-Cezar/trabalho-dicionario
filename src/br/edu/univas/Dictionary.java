@@ -9,8 +9,8 @@ public class Dictionary {
         int option;
         int pos = 0;
         String[] result;
-        String[] words = new String[3];
-        String[] translatedWords = new String[3];
+        String[] words = new String[100];
+        String[] translatedWords = new String[100];
 
         do {
             TimeUnit.MILLISECONDS.sleep(1500);
