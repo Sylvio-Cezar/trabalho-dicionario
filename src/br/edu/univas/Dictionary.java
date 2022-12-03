@@ -12,6 +12,8 @@ public class Dictionary {
         String[] words = new String[100];
         String[] translatedWords = new String[100];
 
+        System.out.println("\nSylvio Cézar Rezende Pereira\t\t2º Período");
+
         do {
             TimeUnit.MILLISECONDS.sleep(1500);
             buildMenu();
